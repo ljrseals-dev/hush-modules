@@ -1,32 +1,34 @@
-# Hush
+# Hush Adio Processing Modules 
 Hush is a suite of privacy-focused, zero-telemetry audio processing plugins and modules built with a clean, native C++ architecture.
+Repository: github.com/ljrseals-dev/hush-modules
 ## **Design Pillars**
  * **Zero Telemetry & Analytics**: Designed from the ground up to operate completely offline with an absolute absence of analytics, tracking SDKs, or external network calls.
  * **High-Performance C++ Architecture**: Engineered for low-latency, real-time audio execution and multi-track scalability.
  * **Robust Verification**: Backed by automated test harnesses, continuous integration support, and rigorous sample verification.
-## **Core Modules & Effects**
-The suite includes a comprehensive collection of modular DSP components and corresponding plugin wrappers:
- * **AB** (HushAB / HushABPlugin): A/B comparison and switching utilities for quick reference validation.
- * **Album** (HushAlbum / HushAlbumPlugin): Album-level processing and macro-dynamic management.
- * **Edges** (HushEdges / HushEdgesPlugin): Transient shaping and edge definition controls.
- * **Hum** (HushHum / HushHumPlugin): Targeted harmonic hum removal and frequency cleaning.
- * **Level** (HushLevel / HushLevelPlugin): Precision level control, balancing, and loudness management backed by HushLoudnessMeter.h.
- * **Match** (HushMatch / HushMatchPlugin): Spectral and tonal matching tools.
- * **Noise** (HushNoise / HushNoisePlugin): Advanced spectral noise reduction.
- * **Peak** (HushPeak / HushPeakPlugin): Peak control and true peak limiting powered by HushTruePeakLimiter.h.
- * **Sibilance** (HushSibilance / HushSibilancePlugin): Dedicated de-essing and sibilance management.
- * **Smooth** (HushSmooth / HushSmoothPlugin): Audio smoothing utilities for signal stabilization.
+## **Core Modules & Architecture**
+The suite includes a comprehensive collection of modular DSP components, core source files, and corresponding plugin wrappers:
+ * **AB** (modules/HushAB.h, src/HushAB.cpp, plugins/HushABPlugin.cpp): A/B comparison and switching utilities for quick reference validation.
+ * **Album** (modules/HushAlbum.h, src/HushAlbum.cpp, plugins/HushAlbumPlugin.cpp): Album-level processing and macro-dynamic management.
+ * **Edges** (modules/HushEdges.h, src/HushEdges.cpp, plugins/HushEdgesPlugin.cpp): Transient shaping and edge definition controls.
+ * **Hum** (modules/HushHum.h, src/HushHum.cpp, plugins/HushHumPlugin.cpp): Targeted harmonic hum removal and frequency cleaning.
+ * **Level** (modules/HushLevel.h, src/HushLevel.cpp, plugins/HushLevelPlugin.cpp): Precision level control and balancing, supported by the shared loudness measurement engine (dsp/HushLoudnessMeter.h).
+ * **Match** (modules/HushMatch.h, src/HushMatch.cpp, plugins/HushMatchPlugin.cpp): Spectral and tonal matching tools.
+ * **Noise** (modules/HushNoise.h, src/HushNoise.cpp, plugins/HushNoisePlugin.cpp): Advanced spectral noise reduction.
+ * **Peak** (modules/HushPeak.h, src/HushPeak.cpp, plugins/HushPeakPlugin.cpp): Peak control powered by true-peak limiting utilities (dsp/HushTruePeakLimiter.h).
+ * **Sibilance** (modules/HushSibilance.h, src/HushSibilance.cpp, plugins/HushSibilancePlugin.cpp): Dedicated de-essing and sibilance management.
+ * **Smooth** (modules/HushSmooth.h, src/HushSmooth.cpp, plugins/HushSmoothPlugin.cpp): Audio smoothing utilities for signal stabilization.
 ## **Repository Layout**
 ```text
 Hush/
-├── CMakeLists.txt          # Main build system configuration[span_15](start_span)[span_15](end_span)
-├── dsp/                    # Core DSP utilities, meters, and limiters[span_16](start_span)[span_16](end_span)
-├── modules/ & src/         # Core audio processing module business logic[span_17](start_span)[span_17](end_span)
-├── plugins/                # Individual plugin implementations & factory[span_18](start_span)[span_18](end_span)
-├── wrapper/                # Plugin processor and editor interface wrappers[span_19](start_span)[span_19](end_span)
-├── ui/                     # Custom user interface panels, credits, and notes[span_20](start_span)[span_20](end_span)
-├── scripts/                # Test mains (`effect_test_main.cpp`, `null_test_main.cpp`) & test automation (`run_ab_tests.sh`)[span_21](start_span)[span_21](end_span)
-└── docs/                   # Supplemental documentation (e.g., `AB_MATRIX.md`)[span_22](start_span)[span_22](end_span)
+├── CMakeLists.txt          # Main build system configuration
+├── dsp/                    # Core DSP utilities, meters (`HushLoudnessMeter.h`), and limiters (`HushTruePeakLimiter.h`)
+├── modules/                # Module headers (e.g., HushAB.h, HushHum.h, HushNoise.h)
+├── src/                    # Core audio processing module implementations
+├── plugins/                # Individual plugin implementations & factory (`HushPluginFactory.h`)
+├── wrapper/                # Plugin processor and editor interface wrappers (`HushPluginProcessor.cpp/h`, `HushPluginEditor.cpp/h`)
+├── ui/                     # Custom user interface panels, credits, and notes
+├── scripts/                # Test mains (`effect_test_main.cpp`, `null_test_main.cpp`) & test automation (`run_ab_tests.sh`)
+└── docs/                   # Supplemental documentation (e.g., `AB_MATRIX.md`)
 
 ```
 ## **Build & Development Instructions**
