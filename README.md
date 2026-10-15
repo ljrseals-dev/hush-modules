@@ -1,4 +1,4 @@
-# Hush Adio Processing Modules 
+# Hush Audio Processing Modules 
 Hush is a suite of privacy-focused, zero-telemetry audio processing plugins and modules built with a clean, native C++ architecture.
 Repository: github.com/ljrseals-dev/hush-modules
 ## **Design Pillars**
