@@ -1,6 +1,18 @@
 # Hush Audio Processing Modules 
 Hush is a suite of privacy-focused, zero-telemetry audio processing plugins and modules built with a clean, native C++ architecture.
 Repository: github.com/ljrseals-dev/hush-modules
+
+## **Interface Preview**
+
+![Hush Audio Processing Modules](1792027701983.jpg)
+
+The Hush user interface is designed for high-efficiency studio environments, providing a clean, distraction-free dark-mode workspace. The modular panel layout offers immediate visual feedback across core processing stages:
+* **AB Comparison Routing**: Seamless reference switching and pipeline validation.
+* **Spectral Matching**: Real-time frequency analysis and tonal curve matching.
+* **Noise Reduction Waveforms**: Precision monitoring for spectral cleanup and artifact control.
+* **True-Peak Limiting**: Transparent peak management and ceiling metering.
+* **Transient Shaping Controls**: Dedicated parameters for attack, sustain, and edge definition.
+
 ## **Design Pillars**
  * **Zero Telemetry & Analytics**: Designed from the ground up to operate completely offline with an absolute absence of analytics, tracking SDKs, or external network calls.
  * **High-Performance C++ Architecture**: Engineered for low-latency, real-time audio execution and multi-track scalability.
