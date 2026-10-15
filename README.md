@@ -4,7 +4,7 @@ Repository: github.com/ljrseals-dev/hush-modules
 
 ## **Interface Preview**
 
-![Hush Audio Processing Modules](1792027701983.jpg)
+![Hush Audio Processing Modules](1792071486127.jpg)
 
 The Hush user interface is designed for high-efficiency studio environments, providing a clean, distraction-free dark-mode workspace. The modular panel layout offers immediate visual feedback across core processing stages:
 * **AB Comparison Routing**: Seamless reference switching and pipeline validation.
